@@ -1,0 +1,15 @@
+filebeat.inputs:
+- type: filestream
+  id: my-json-logs
+  enabled: true
+  paths:
+    - /var/log/elk/*.json
+  
+  parsers:
+    - multiline:
+        pattern: '^\{'
+        negate: true
+        match: 'after'
+
+output.logstash:
+  hosts: ["logstash:5044"]
