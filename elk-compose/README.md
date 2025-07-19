@@ -1,8 +1,13 @@
 
 .
 ├── docker-compose.yml
+
 ├── filebeat
-│   └── filebeat.yml
+
+    └── filebeat.yml
+   
 └── logstash
+
     └── pipeline
+    
         └── logstash.conf
