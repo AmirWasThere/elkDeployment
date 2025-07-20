@@ -120,23 +120,28 @@ This shows how you access and visualize the data:
 
 ### dumping indices intro compressed files:
 
+
 To prevent index bloat and retain snapshots of Elasticsearch indices, this setup includes a custom `elasticdump` container that continuously monitors for specific index patterns, exports them as `.json.gz` files, and uploads them to MinIO.
 
-Included Patterns
+**Included Patterns**
 You can adjust these inside the export-and-upload.sh script:
 ```bash
 PATTERNS=("event-logs-" "gc-logs-" "metric-logs-")
 ```
 
 All compressed dumps are saved in: `./dumps/`
-Example structure:
+**Example structure:**
+
+
 ```bash
 ./dumps/
 ├── event-logs-2025.07.20.json.gz
 ├── gc-logs-2025.07.20.json.gz
 └── metric-logs-2025.07.20.json.gz
 ```
-MinIO Bucket
+**MinIO Bucket**
+
+
 The exported .gz files are uploaded to MinIO under a bucket named: `elk-exports`
 
 
