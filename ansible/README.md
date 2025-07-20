@@ -1,4 +1,4 @@
-# Ansible Kubernetes Single-Node Setup
+# Ansible Single-Node Initial Setup
 
 This repository contains Ansible playbooks and inventories to automate the setup of a single-node Kubernetes cluster along with essential tools for warming up to install ELK,beats,etc.
 
