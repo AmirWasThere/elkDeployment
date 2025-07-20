@@ -120,15 +120,3 @@ Simply:
 ```bash
 docker compose up -d
 ```
-
-## Kibana Web Interface Security
-The default `user` and `password` is provided in docker-compose file, if you mind chanigng it, change it. then you must do:
-```bash
-docker exec -it es01 /bin/bash
-bin/elasticsearch-users useradd kibana_user -p kibana12345678@ -r kibana_system # -r:role identifier flag
-
-```
-then restart the kibana container using:
-```bash
-docker compose restart kibana
-```
