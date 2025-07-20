@@ -11,6 +11,12 @@ A minimal ELK Stack (Elasticsearch, Logstash, Kibana) and Filebeat setup using D
 └── logstash/
     └── pipeline/
         └── logstash.conf
+├── elasticdump/
+│   └── Dockerfile
+│   └── export-and-uplod.sh
+├── dumps/
+├── minio_data/
+
 ```
 also notice the project structure, any changes in default structure will be require changes in compose file and maybe the other files.
 
@@ -112,6 +118,28 @@ This shows how you access and visualize the data:
 
 **Logstash (Beats Input):** `localhost:5044`
 
+### dumping indices intro compressed files:
+
+To prevent index bloat and retain snapshots of Elasticsearch indices, this setup includes a custom `elasticdump` container that continuously monitors for specific index patterns, exports them as `.json.gz` files, and uploads them to MinIO.
+
+Included Patterns
+You can adjust these inside the export-and-upload.sh script:
+```bash
+PATTERNS=("event-logs-" "gc-logs-" "metric-logs-")
+```
+
+All compressed dumps are saved in: `./dumps/`
+Example structure:
+```bash
+./dumps/
+├── event-logs-2025.07.20.json.gz
+├── gc-logs-2025.07.20.json.gz
+└── metric-logs-2025.07.20.json.gz
+```
+MinIO Bucket
+The exported .gz files are uploaded to MinIO under a bucket named: `elk-exports`
+
+
 
 ## Run
 
@@ -120,6 +148,6 @@ Simply:
 docker compose up -d
 ```
 
-## dumping indices intro compressed files:
+
 
 
