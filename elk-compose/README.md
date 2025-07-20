@@ -150,7 +150,7 @@ The exported .gz files are uploaded to MinIO under a bucket named: `elk-exports`
 
 Simply:
 ```bash
-docker compose up -d
+docker compose up -d --build
 ```
 
 
