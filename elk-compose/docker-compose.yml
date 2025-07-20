@@ -6,7 +6,10 @@ services:
     container_name: es01
     environment:
       - discovery.type=single-node
-      - xpack.security.enabled=false
+      ################
+      - xpack.security.enabled=false #was true
+      - ELASTIC_PASSWORD=elastic12345678@ #existance
+      ############
       - "ES_JAVA_OPTS=-Xms1g -Xmx2g"
     volumes:
       - es_data:/usr/share/elasticsearch/data
@@ -31,7 +34,11 @@ services:
     image: kibana:8.15.0
     container_name: kibana01
     environment:
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      ######################3333
+      - ELASTICSEARCH_HOSTS=http://es01:9200 # was ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=elastic12345678@
+     ########################## 
     ports:
       - "5601:5601"
     depends_on:
