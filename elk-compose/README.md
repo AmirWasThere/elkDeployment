@@ -42,13 +42,21 @@ notice where do you put the logs, the default defined path for the logs is `/var
 
 The pipeline follows a clear, four-step data flow from a log file to a visual dashboard:
 
-**1.Collection:** The Filebeat service continuously monitors a specific directory on the host machine (`/var/log/elk/`) for new log entries in `.json` files. When a new log is added, Filebeat reads it and securely sends it to Logstash.
+**1.Collection**
 
-**2.Processing:** The Logstash service receives the raw log data from Filebeat. It uses a JSON filter to parse the plain text log message into a structured format with distinct fields (e.g., `level`, `message`). This transformation makes the data much easier to search and analyze.
+The Filebeat service continuously monitors a specific directory on the host machine (`/var/log/elk/`) for new log entries in `.json` files. When a new log is added, Filebeat reads it and securely sends it to Logstash.
 
-**3.Storage & Indexing:** Logstash forwards the structured data to Elasticsearch. Elasticsearch acts as a powerful database, storing the logs and building a searchable index from them. This allows for incredibly fast and complex queries on a massive amount of log data.
+**2.Processing**
 
-**4.Visualization:** Kibana provides a user-friendly web interface that connects to Elasticsearch. With Kibana, you can search through all the collected logs, create visualizations like charts and graphs, and assemble them into real-time dashboards for monitoring and analysis.
+The Logstash service receives the raw log data from Filebeat. It uses a JSON filter to parse the plain text log message into a structured format with distinct fields (e.g., `level`, `message`). This transformation makes the data much easier to search and analyze.
+
+**3.Storage & Indexing**
+
+Logstash forwards the structured data to Elasticsearch. Elasticsearch acts as a powerful database, storing the logs and building a searchable index from them. This allows for incredibly fast and complex queries on a massive amount of log data.
+
+**4.Visualization**
+
+Kibana provides a user-friendly web interface that connects to Elasticsearch. With Kibana, you can search through all the collected logs, create visualizations like charts and graphs, and assemble them into real-time dashboards for monitoring and analysis.
 
 ### Data-Flow & User-interaction Diagram
 
@@ -87,12 +95,12 @@ This shows how logs travel from the source file to storage:
 This shows how you access and visualize the data:
 ```bash
                   ┌─────────────────────────┐
-                  │ User Web Browser      │
+                  │ User Web Browser        │
                   └───────────┬─────────────┘
                               │ (Accesses via Port 5601)
                               ▼
                   ┌─────────────────────────┐      ┌─────────────────────────┐
-                  │ Kibana Container        ├──────►│ Elasticsearch Container │
+                  │ Kibana Container        ├─────►│ Elasticsearch Container │
                   │ (Web Interface)         │      │ (Serves Data)           │
                   └─────────────────────────┘      └─────────────────────────┘
 ```
