@@ -36,7 +36,6 @@ notice where do you put the logs, the default defined path for the logs is `/var
 
 **Kibana:** The visualization layer that allows you to explore and analyze the data stored in Elasticsearch.
 
-**Docker Compose:** The tool used to define and run this entire multi-container application, managing the services and their network connections.
 
 ### Pipeline Design
 
@@ -120,3 +119,7 @@ Simply:
 ```bash
 docker compose up -d
 ```
+
+## dumping indices intro compressed files:
+
+
