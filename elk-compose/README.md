@@ -87,7 +87,7 @@ This shows how logs travel from the source file to storage:
 This shows how you access and visualize the data:
 ```bash
                   ┌─────────────────────────┐
-                  │ User's Web Browser      │
+                  │ User Web Browser      │
                   └───────────┬─────────────┘
                               │ (Accesses via Port 5601)
                               ▼
