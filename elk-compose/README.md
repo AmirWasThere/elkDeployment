@@ -53,8 +53,9 @@ The pipeline follows a clear, four-step data flow from a log file to a visual da
 ### Data-Flow & User-interaction Diagram
 
 
-**Data Ingestion Flow**
-This shows how logs travel from the source file to storage.
+**Data Ingestion Flow:**
+
+This shows how logs travel from the source file to storage:
 ```bash
                   ┌─────────────────────────┐
                   │ Host Machine            │
@@ -82,7 +83,8 @@ This shows how logs travel from the source file to storage.
 
 
 User Interaction Flow
-This shows how you access and visualize the data.
+
+This shows how you access and visualize the data:
 ```bash
                   ┌─────────────────────────┐
                   │ User's Web Browser      │
