@@ -82,7 +82,7 @@ This shows how logs travel from the source file to storage:
 ```
 
 
-User Interaction Flow
+**User Interaction Flow**
 
 This shows how you access and visualize the data:
 ```bash
