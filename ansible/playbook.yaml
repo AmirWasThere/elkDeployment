@@ -3,9 +3,22 @@
   become: true
 
   tasks:
+  
     - name: Set hostname (optional)
       hostname:
-        name:ELK
+        name: ELK
+
+    - name: Adding shecan Primary 
+      ansible.builtin.lineinfile:
+        path: /etc/resolv.conf
+        line: "nameserver 178.22.122.100"
+        state: present
+
+    - name: Adding shecan Secondary
+      ansible.builtin.lineinfile:
+        path: /etc/resolv.conf
+        line: "nameserver 185.51.200.2"
+        state: present
 
     - name: Update and upgrade apt packages
       apt:
@@ -16,6 +29,9 @@
     - name: Install base packages
       apt:
         name:
+          - htop
+          - ufw
+          - python3
           - curl
           - wget
           - git
@@ -25,6 +41,7 @@
           - gnupg
           - ca-certificates
           - apt-transport-https
+          - tree
         state: present
 
     - name: Add Docker GPG key
@@ -52,3 +69,5 @@
         name: docker
         enabled: true
         state: started
+
+
