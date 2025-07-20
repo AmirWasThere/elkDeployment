@@ -112,5 +112,19 @@ This shows how you access and visualize the data:
 **Elasticsearch:** `http://localhost:9200`
 
 **Logstash (Beats Input):** `localhost:5044`
-<span style="color:red">Red Text</span>
 
+
+## Run
+
+Simply:
+```bash
+docker compose up -d
+```
+
+## Kibana Web Interface Security
+The default `user` and `password` is provided in docker-compose file, if you mind chanigng it, change it. then you must do:
+```bash
+docker exec -it es01 /bin/bash
+bin/elasticsearch-users useradd kibana_user -p kibana12345678@ -r kibana_system # -r:role identifier flag
+
+```
