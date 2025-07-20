@@ -128,3 +128,7 @@ docker exec -it es01 /bin/bash
 bin/elasticsearch-users useradd kibana_user -p kibana12345678@ -r kibana_system # -r:role identifier flag
 
 ```
+then restart the kibana container using:
+```bash
+docker compose restart kibana
+```
