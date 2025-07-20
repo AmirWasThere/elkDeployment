@@ -7,7 +7,7 @@ For detailed infrastructure setup procedures, see Infrastructure Provisioning. F
 
 ---
 
-## 🛠Infrastructure Provisioning
+## Infrastructure Provisioning
 
 Automates server configuration and provisioning using Ansible.
 
