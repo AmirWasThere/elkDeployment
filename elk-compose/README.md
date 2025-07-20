@@ -25,7 +25,7 @@ notice where do you put the logs, the default defined path for the logs is `/var
 ├── 20231104.json
 ```
 
-##Endpoints
+## Endpoints
 
 Kibana: `http://localhost:5601`
 
